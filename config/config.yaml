@@ -1,0 +1,29 @@
+# Master control sheet
+samples: "config/samples.tsv"
+ref_genome:
+  fasta: "data/references/ISO1_r6.58/dmel-all-chromosome-r6.58.fasta"
+  bwa_index_marker: "data/references/ISO1_r6.58/dmel-all-chromosome-r6.58.fasta.0123"
+  faidx: "data/references/ISO1_r6.58/dmel-all-chromosome-r6.58.fasta.fai"
+
+# High-level output directory
+outdir: "results"
+
+max_threads: 30
+
+# Pairtools filtering
+pairtools:
+  min_mapq: 10
+  walks_policy: "5unique" # prefer 5' mapping (sequenced 5' to 3', may hit ligation junction near 3' end)
+  max_inter_align_gap: 30 # chimeric reads, if genomic distance < 30 bp (ie indel), keep
+
+# HapHiC Plotting Parameters (Static Matplotlib execution)
+haphic:
+  min_len: 15
+  origin: "top_left"
+  border_style: "outline"
+  outline_width: 0.2
+  outline_color: "white"
+  cmap: "viridis"
+  outline_style: "solid"
+  figure_width: 15
+  figure_height: 15

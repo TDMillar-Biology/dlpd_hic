@@ -1,0 +1,15 @@
+# Data and generated outputs
+data/
+results/
+logs/
+.snakemake/
+
+# Container images and archives
+*.sif
+*.tar
+*.tar.gz
+*.zip
+
+# Python cache
+__pycache__/
+*.pyc

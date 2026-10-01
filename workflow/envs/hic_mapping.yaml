@@ -1,0 +1,9 @@
+name: dlpd_hic_mapping
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bwa-mem2 = 2.2.1
+  - samtools = 1.21
+  - pairtools = 1.1.2

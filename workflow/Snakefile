@@ -1,0 +1,21 @@
+import pandas as pd
+
+configfile: "config/config.yaml"
+
+# Load samples dataframe
+samples_df = pd.read_csv(config["samples"], sep="\t").set_index("sample_id", drop=False)
+SAMPLES = samples_df["sample_id"].tolist()
+MAIN_CHROMS = ["2L", "2R", "3L", "3R", "4", "X", "Y"]
+
+rule all:
+    input:
+        expand("results/{sample}/raw_unsorted_hic.bam", sample=SAMPLES),
+        expand("results/{sample}/hic_mapped.bam", sample=SAMPLES),
+        expand("results/{sample}/hic_heatmap.pdf", sample=SAMPLES),
+        expand("results/{sample}/hic_heatmap.png", sample=SAMPLES),
+        expand("results/{sample}/hic_heatmap_{chrom}.png", sample=SAMPLES, chrom=MAIN_CHROMS),
+        expand("results/{sample}/hic_heatmap_{chrom}.pdf", sample=SAMPLES, chrom=MAIN_CHROMS)
+
+include: "rules/hic_mapping.smk",
+include: "rules/pairtools.smk",
+include: "rules/plotting.smk"

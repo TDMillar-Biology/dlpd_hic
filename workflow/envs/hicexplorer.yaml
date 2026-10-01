@@ -1,0 +1,8 @@
+name: hicexplorer_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.8
+  - hicexplorer>=3.7.2

@@ -1,0 +1,9 @@
+name: dlpd_hic_plotting
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python = 3.11
+  - haphic
+  - matplotlib
